@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
-
 const app = express();
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
@@ -29,7 +29,7 @@ app.post('/search', (req, res) => {
                     movieGenresArray.push(movieGenres[j].name);
                 }
             }
-        };
+        }
 
         let genresToDisplay = '';
         movieGenresArray.forEach(genre => {
@@ -51,5 +51,5 @@ app.post('/search', (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-    
+    console.log('server is running');
 });
